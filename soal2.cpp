@@ -49,3 +49,20 @@ int main (){
     cout <<"Program Sudah Selesai";
     return 0;
 }
+/*
+===========================
+Penjelasan Algoritma
+===========================
+Program ini berifat case insensitive yang dimana tidak dipengaruhi huruf besar dan kecil dimana digunakan di bagian input perintah.
+
+Pertama Program akan meminta input jumlah perintah yang akan dijalankan.
+Kedua Program melakukan pengulangan sesuai dengan inputan jumlah perintah.
+Ketiga Program akan menyuruh kita memasukan perintah dan nama pasien.
+Keempat Program mengubah kata perintah menjadi Huruf besar semuar agar menjadi case insensitive.
+Kelima Program akan menjalankan program sesuai perintah:
+    a.Jika Datang maka program akan memasukan nama_pasien ke belakang antrian utama.
+    b.Jika Darurat maka program akan memasukan nama_pasien ke belakang antrian darurat.
+    c.Jika Layani program akan melayani pasien dari antrian darurat dulu dan jika tidak ada atau sudah habis maka program akan melayani pasien dari antrian utama.
+    d.Jika perintah yang diinput bukan Datang ,Darurat ,atau Layani maka akan muncul output tulisan Perintah tidak valid.
+Keenam Program akan selesai jika jumlah perintah udah sesuai dengan jumlah perintah yang diinput (Perintah yang tidak valid tidak dihitung).
+*/
