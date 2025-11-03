@@ -1,1 +1,5 @@
-Link Soal UTS: https://drive.google.com/drive/folders/1xehbVEg73oedbQbNWTp8JCrMNmwdNiCq?usp=sharing
+Kelompok 4
+Anggota:
+        1.Phan Topik (241401054)
+        2.Cristoval Pratama Siahaan (241401057)
+        3.Akief maulana (241401072)
