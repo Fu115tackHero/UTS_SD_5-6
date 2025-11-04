@@ -1,18 +1,22 @@
-//Masukkan jawaban disini#include <iostream>
+#include <iostream>
 using namespace std;
 
-// Fungsi untuk melakukan rotasi kiri pada array
-void rotateLeft(int arr[], int n, int d) {
-    // Pastikan jumlah rotasi tidak lebih besar dari ukuran array
-    d = d % n;  
+void rotateLeft(int arr[], int n, int d, int result[]) {
+    // 1. Pastikan jumlah rotasi tidak melebihi ukuran array
+    d = d % n;
 
-    // Lakukan rotasi sebanyak d kali
+    int index = 0;
+
+    // 2. Pindahkan elemen mulai dari posisi d sampai akhir ke depan
+    for (int i = d; i < n; i++) {
+        result[index] = arr[i];
+        index++;
+    }
+
+    // 3. Lalu pindahkan bagian awal (0 sampai d-1) ke belakang
     for (int i = 0; i < d; i++) {
-        int temp = arr[0]; // Simpan elemen pertama
-        for (int j = 0; j < n - 1; j++) {
-            arr[j] = arr[j + 1]; // Geser semua elemen ke kiri
-        }
-        arr[n - 1] = temp; // Letakkan elemen pertama di posisi paling kanan
+        result[index] = arr[i];
+        index++;
     }
 }
 
@@ -23,19 +27,16 @@ int main() {
     cin >> n >> d;
 
     int arr[n];
-
-    // Input elemen-elemen array
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
 
-    // Panggil fungsi rotasi kiri
-    rotateLeft(arr, n, d);
+    int result[n];
+    rotateLeft(arr, n, d, result);
 
-    // Tampilkan hasil array setelah dirotasi
     cout << "Hasil rotasi: ";
     for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+        cout << result[i] << " ";
     }
     cout << endl;
 
@@ -43,40 +44,61 @@ int main() {
 }
 
 /*
-=====================
-PENJELASAN ALGORITMA
-=====================
+===================
+PENJELASAN PROGRAM 
+===================
 
-1 Program meminta dua input pertama: 
-   - n = jumlah elemen array
-   - d = banyaknya rotasi kiri yang akan dilakukan
 
-2 Kemudian program membaca n elemen array dari pengguna.
+--------------------------
+BAGIAN FUNGSI rotateLeft()
+--------------------------
+Fungsi ini menerima array asli (`arr`), jumlah elemen (`n`), dan banyak rotasi (`d`),
+lalu menyusun array baru (`result`) berisi hasil rotasi.
 
-3 Fungsi rotateLeft() melakukan proses rotasi sebanyak d kali:
-   - Setiap rotasi:
-     a. Simpan elemen pertama (arr[0]) ke variabel sementara `temp`.
-     b. Geser semua elemen satu langkah ke kiri:
-        contoh: [1,2,3,4,5] → [2,3,4,5,?]
-     c. Masukkan nilai `temp` ke posisi terakhir.
-        hasil akhir setelah 1 rotasi: [2,3,4,5,1]
+Langkah-langkahnya:
+1  d = d % n
+     → Jika d lebih besar dari panjang array, kita hanya ambil sisa rotasinya.
+        Contoh: n = 5, d = 7 → rotasi 7 kali sama dengan rotasi 2 kali.
 
-4 Proses ini diulang sebanyak d kali.
+2  Ambil elemen dari arr mulai indeks ke-d hingga akhir,
+     lalu masukkan ke depan array hasil.
+        Contoh:
+        arr = [1, 2, 3, 4, 5], d = 2
+        → ambil [3, 4, 5] → letakkan di awal result → result = [3, 4, 5]
 
-5 Setelah selesai, array hasil rotasi dicetak ke layar.
+3  Ambil sisa elemen dari awal (indeks 0 s.d d-1)
+     dan letakkan di belakang.
+        → ambil [1, 2] → tambahkan di akhir result → result = [3, 4, 5, 1, 2]
 
-==========================================================
-CONTOH:
+4️  Setelah dua langkah ini selesai, rotasi kiri selesai dilakukan.
+
+-------------
+BAGIAN main()
+-------------
+1 Program meminta input:
+     - n (jumlah elemen)
+     - d (jumlah rotasi kiri)
+     - n buah angka untuk isi array
+
+2 Panggil fungsi rotateLeft untuk melakukan perhitungan.
+
+3 Cetak hasil array yang telah dirotasi ke layar.
+
+------------------
+CONTOH PEMROSESAN
+------------------
 Input:
 5 4
 1 2 3 4 5
 
-Proses rotasi kiri 4 kali menghasilkan:
-5 1 2 3 4
+Proses di rotateLeft():
+- n = 5, d = 4
+- Elemen dari indeks ke-4 sampai akhir → [5]
+- Elemen dari indeks ke-0 sampai ke-3 → [1, 2, 3, 4]
+- Gabungkan → [5, 1, 2, 3, 4]
 
-==========================================================
-Kompleksitas:
-- Waktu: O(n * d)
-- Ruang tambahan: O(1)
-==========================================================
+Output:
+Hasil rotasi: 5 1 2 3 4
+
+
 */
