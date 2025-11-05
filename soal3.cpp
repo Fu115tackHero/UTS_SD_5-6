@@ -56,16 +56,10 @@ int main(){
 
     return 0;
 }
-// Program ini mensimulasikan penyebaran infeksi di dalam sebuah jaringan menggunakan metode Breadth-First Search (BFS).
-
-// Pertama, program memanggil beberapa pustaka seperti iostream, vector, queue, dan algorithm agar bisa melakukan input-output, menyimpan data, dan mengurutkan hasil. Kemudian pengguna diminta memasukkan jumlah vertex (titik) dan edge (sisi), yaitu jumlah node dan hubungan antar node.
-
-// Program membuat struktur adjacency list menggunakan vector<vector<int>> graph(V); untuk menyimpan siapa terhubung dengan siapa. Setiap pasangan u v yang dimasukkan menunjukkan bahwa node u terhubung dengan v, dan sebaliknya (graph[u].push_back(v) dan graph[v].push_back(u)), karena graf bersifat tidak berarah.
-
-// Setelah itu, program meminta node awal (S) dan hari ke-K (K). Node awal adalah titik yang pertama kali terinfeksi pada hari ke-0. Program menggunakan queue untuk menyimpan node yang sedang menularkan penyakit, bersama dengan hari infeksinya.
-
-// Proses BFS dimulai dari node awal. Setiap node yang terinfeksi akan menularkan ke semua tetangganya yang belum terinfeksi, dengan waktu infeksi bertambah satu hari. Jika ada node yang terinfeksi tepat pada hari ke-K, node tersebut disimpan dalam daftar infectedDayK.
-
-// Setelah semua proses selesai, program menampilkan node-node yang terinfeksi pada hari ke-K. Jika tidak ada, akan ditampilkan “(TIDAK ADA)”.
-
-// Singkatnya, program ini melacak penyebaran infeksi dari satu titik ke seluruh jaringan dan menunjukkan siapa saja yang terinfeksi tepat pada hari ke-K.
+/*Program ini mensimulasikan penyebaran infeksi di dalam sebuah jaringan menggunakan metode Breadth-First Search (BFS).
+Pertama, program memanggil beberapa pustaka seperti iostream, vector, queue, dan algorithm agar bisa melakukan input-output, menyimpan data, dan mengurutkan hasil. Kemudian pengguna diminta memasukkan jumlah vertex (titik) dan edge (sisi), yaitu jumlah node dan hubungan antar node.
+Program membuat struktur adjacency list menggunakan vector<vector<int>> graph(V); untuk menyimpan siapa terhubung dengan siapa. Setiap pasangan u v yang dimasukkan menunjukkan bahwa node u terhubung dengan v, dan sebaliknya (graph[u].push_back(v) dan graph[v].push_back(u)), karena graf bersifat tidak berarah.
+Setelah itu, program meminta node awal (S) dan hari ke-K (K). Node awal adalah titik yang pertama kali terinfeksi pada hari ke-0. Program menggunakan queue untuk menyimpan node yang sedang menularkan penyakit, bersama dengan hari infeksinya.
+Proses BFS dimulai dari node awal. Setiap node yang terinfeksi akan menularkan ke semua tetangganya yang belum terinfeksi, dengan waktu infeksi bertambah satu hari. Jika ada node yang terinfeksi tepat pada hari ke-K, node tersebut disimpan dalam daftar infectedDayK.
+Setelah semua proses selesai, program menampilkan node-node yang terinfeksi pada hari ke-K. Jika tidak ada, akan ditampilkan “(TIDAK ADA)”.
+Singkatnya, program ini melacak penyebaran infeksi dari satu titik ke seluruh jaringan dan menunjukkan siapa saja yang terinfeksi tepat pada hari ke-K.*/    
